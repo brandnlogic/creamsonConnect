@@ -1,9 +1,12 @@
-package com.bnl.dao;
+package com.bnl.application.dao;
 
-import com.bnl.dto.TeacherPrimaryKey;
-import com.bnl.dto.TeachersDetailsDTO;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+import com.bnl.application.dto.TeacherPrimaryKey;
+import com.bnl.application.dto.TeachersDetailsDTO;
+
+//@Repository
 public interface TeachersDetailsDAO extends CrudRepository<TeachersDetailsDTO, TeacherPrimaryKey>  {
 
   //  TeachersDetailsDTO findByTeacherId(TeacherPrimaryKey teacherId);

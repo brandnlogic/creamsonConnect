@@ -1,8 +1,7 @@
-package com.bnl.controller;
+package com.bnl.application.controller;
 
-import com.bnl.common.to.TeacherTO;
-
-import com.bnl.service.TeacherService;
+import com.bnl.application.common.to.TeacherTO;
+import com.bnl.application.service.TeacherService;
 
 import org.json.JSONException;
 import org.json.JSONObject;

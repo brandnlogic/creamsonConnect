@@ -1,14 +1,13 @@
-package com.bnl.dto;
+package com.bnl.application.dto;
 
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity(name = "teacher_dtls")
-@Component
-public class TeachersDetailsDTO implements Serializable {
+//@Component
+public class TeachersDetailsDTO {
 
     @EmbeddedId
     private TeacherPrimaryKey teacherPrimaryKey;
@@ -19,14 +18,14 @@ public class TeachersDetailsDTO implements Serializable {
     @Column(name = "Teacher_Type")
     private String teacherType;
     
-    @Column(name = "STATUS")
+    @Column(name = "Status")
     private int status;
 
-    @Column(name = "LAST_UPDATE_ID")
+    @Column(name = "Last_Update_Id")
     private String lastUpdateID;
 
-    @Column(name = "LAST_UPDATE_TIMESTAMP")
-    private Date lastUpdateTimeStamp;
+    @Column(name = "Last_Update_Timestamp")
+    private String lastUpdateTimeStamp;
 
     public TeacherPrimaryKey getTeacherPrimaryKey() {
 		return teacherPrimaryKey;
@@ -68,11 +67,11 @@ public class TeachersDetailsDTO implements Serializable {
         this.lastUpdateID = lastUpdateID;
     }
 
-    public Date getLastUpdateTimeStamp() {
+    public String getLastUpdateTimeStamp() {
         return lastUpdateTimeStamp;
     }
 
-    public void setLastUpdateTimeStamp(Date lastUpdateTimeStamp) {
+    public void setLastUpdateTimeStamp(String lastUpdateTimeStamp) {
         this.lastUpdateTimeStamp = lastUpdateTimeStamp;
     }
 }

@@ -1,4 +1,4 @@
-package com.bnl.common.to;
+package com.bnl.application.common.to;
 
 import java.util.Date;
 

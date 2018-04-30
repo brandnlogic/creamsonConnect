@@ -1,10 +1,11 @@
-package com.bnl.service.impl;
+package com.bnl.application.service.impl;
 
-import com.bnl.common.to.TeacherTO;
-import com.bnl.dao.TeachersDetailsDAO;
-import com.bnl.dto.TeacherPrimaryKey;
-import com.bnl.dto.TeachersDetailsDTO;
-import com.bnl.service.TeacherService;
+import com.bnl.application.common.to.TeacherTO;
+import com.bnl.application.dao.TeachersDetailsDAO;
+import com.bnl.application.dto.TeacherPrimaryKey;
+import com.bnl.application.dto.TeachersDetailsDTO;
+import com.bnl.application.service.TeacherService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -103,6 +104,7 @@ public class TeacherServiceImpl implements TeacherService {
     public TeacherPrimaryKey setPrimaryKeys(TeacherTO teacherTO)
     {
     	TeacherPrimaryKey teacherPrimaryKey = new TeacherPrimaryKey();
+    	
     	teacherPrimaryKey.setInstitutionId(teacherTO.getInstituteID());
         teacherPrimaryKey.setInstituteUserId(teacherTO.getInstituteUserID());
         teacherPrimaryKey.setTeacherId(teacherTO.getTeachersID());
@@ -117,9 +119,20 @@ public class TeacherServiceImpl implements TeacherService {
          //TODO : Seting of Teachers DTO .
           
           teachersDetailsDTO.setTeacherPrimaryKey(teacherPrimaryKey);
+          teachersDetailsDTO.setPersonalID(teacherTO.getPersonalID());
+          teachersDetailsDTO.setTeacherType(teacherTO.getTeacherType());
           teachersDetailsDTO.setStatus(teacherTO.getStatus()) ;
           teachersDetailsDTO.setLastUpdateID(teacherTO.getLastUpdateID()) ;
-          teachersDetailsDTO.setLastUpdateTimeStamp(Date.valueOf(teacherTO.getLastUpdateTimestamp())); 
+          
+          java.util.Date dt = new java.util.Date();
+          java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+          String currentTime = sdf.format(dt);
+
+
+          
+          teachersDetailsDTO.setLastUpdateTimeStamp(currentTime); 
+          
+          
           
           return teachersDetailsDTO;
     	

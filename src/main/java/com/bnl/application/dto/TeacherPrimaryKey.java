@@ -1,4 +1,4 @@
-package com.bnl.dto;
+package com.bnl.application.dto;
 
 import java.io.Serializable;
 
