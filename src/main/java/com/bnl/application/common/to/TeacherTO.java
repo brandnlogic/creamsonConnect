@@ -4,40 +4,40 @@ import java.util.Date;
 
 public class TeacherTO {
 
-    private int instituteID ;
-    private int teachersID;
-    private String instituteUserID;
+    private int institutionId ;
+    private int teacherId;
+    private String instituteUserId;
     private int personalID ;
     private String teacherType ;
     private int  status ;
     private String lastUpdateID ;
     private String lastUpdateTimestamp ;
-
-    public int getInstituteID() {
-        return instituteID;
-    }
-
-    public void setInstituteID(int instituteID) {
-        this.instituteID = instituteID;
-    }
-
-    public int getTeachersID() {
-        return teachersID;
-    }
-
-    public void setTeachersID(int teachersID) {
-        this.teachersID = teachersID;
-    }
-
-    public String getInstituteUserID() {
-        return instituteUserID;
-    }
-
-    public void setInstituteUserID(String instituteUserID) {
-        this.instituteUserID = instituteUserID;
-    }
     
-    public int getPersonalID() {
+    public int getInstitutionId() {
+		return institutionId;
+	}
+
+	public void setInstitutionId(int institutionId) {
+		this.institutionId = institutionId;
+	}
+
+	public int getTeacherId() {
+		return teacherId;
+	}
+
+	public void setTeacherId(int teacherId) {
+		this.teacherId = teacherId;
+	}
+
+	public String getInstituteUserId() {
+		return instituteUserId;
+	}
+
+	public void setInstituteUserId(String instituteUserId) {
+		this.instituteUserId = instituteUserId;
+	}
+
+	public int getPersonalID() {
 		return personalID;
 	}
 

@@ -84,7 +84,7 @@ public class TeacherController {
     }
     
     @RequestMapping(value = "/teachers", method = RequestMethod.GET)
-    public ResponseEntity<String> getAllTeachersData(@RequestBody TeacherTO teacher)
+    public ResponseEntity<String> getAllTeachersData()
     {
      //   JSONObject responseJson = new JSONObject();
         String getAllTeacherResponse = teacherService.getAllTeacherData();

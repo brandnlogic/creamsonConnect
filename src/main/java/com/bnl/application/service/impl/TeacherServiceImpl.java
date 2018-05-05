@@ -32,7 +32,6 @@ public class TeacherServiceImpl implements TeacherService {
     	
     	// setting up the primary key
     	TeacherPrimaryKey teacherPrimaryKey = setPrimaryKeys(teacherTO);
-    	
         teachersDetailsDAO.save(initializeFieldMapping(teacherTO,teacherPrimaryKey));
         return true;
     }
@@ -95,6 +94,7 @@ public class TeacherServiceImpl implements TeacherService {
     	List<TeachersDetailsDTO> allTeachers = new ArrayList<>();
     	
     	teachersDetailsDAO.findAll().forEach(allTeachers::add);
+    	
     	if(!(allTeachers.isEmpty()))
     		return allTeachers.toString();
     	else
@@ -105,9 +105,9 @@ public class TeacherServiceImpl implements TeacherService {
     {
     	TeacherPrimaryKey teacherPrimaryKey = new TeacherPrimaryKey();
     	
-    	teacherPrimaryKey.setInstitutionId(teacherTO.getInstituteID());
-        teacherPrimaryKey.setInstituteUserId(teacherTO.getInstituteUserID());
-        teacherPrimaryKey.setTeacherId(teacherTO.getTeachersID());
+    	teacherPrimaryKey.setInstitutionId(teacherTO.getInstitutionId());
+        teacherPrimaryKey.setInstituteUserId(teacherTO.getInstituteUserId());
+        teacherPrimaryKey.setTeacherId(teacherTO.getTeacherId());
         
         return teacherPrimaryKey;
     }
@@ -127,12 +127,17 @@ public class TeacherServiceImpl implements TeacherService {
           java.util.Date dt = new java.util.Date();
           java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
           String currentTime = sdf.format(dt);
-
-
-          
           teachersDetailsDTO.setLastUpdateTimeStamp(currentTime); 
           
-          
+          System.out.println("\n\n **************************************** ");
+          System.out.println("Institute-id :-" + teacherPrimaryKey.getInstitutionId());
+          System.out.println("Institute-user-id :-" + teacherPrimaryKey.getInstituteUserId());
+          System.out.println("Institute-teacher-id :-" + teacherPrimaryKey.getTeacherId());
+          System.out.println("Institute-personal-id :-" + teachersDetailsDTO.getPersonalID());
+          System.out.println("Institute-teacher-type :-" + teachersDetailsDTO.getTeacherType());
+          System.out.println("Institute-teacher-status :-" + teachersDetailsDTO.getStatus());
+          System.out.println("Institute-last-updt-id :-" + teachersDetailsDTO.getLastUpdateID());
+          System.out.println("Institute-last-updt-ts:-" + teachersDetailsDTO.getLastUpdateTimeStamp());
           
           return teachersDetailsDTO;
     	
