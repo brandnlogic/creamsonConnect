@@ -16,12 +16,18 @@ public class TeacherController {
     @Autowired
     TeacherService teacherService;
     
+    /*
+     * Test GET service handler
+     */
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello()
     {
     	return "hello kaushik";
     }
     
+    /*
+     * POST - Request Handler
+     */
     @RequestMapping(value = "/teachers", method = RequestMethod.POST)
     public ResponseEntity<String> saveTeachersData(@RequestBody TeacherTO teacher)
     {
@@ -40,8 +46,11 @@ public class TeacherController {
         }else{
         return new ResponseEntity(responseJson.toString(), HttpStatus.BAD_REQUEST);
         }
-
     }
+    
+    /*
+     * PUT - Request Handler
+     */
 
     @RequestMapping(value = "/teachers", method = RequestMethod.PUT)
     public ResponseEntity<String> updateTeachersData(@RequestBody TeacherTO teacher)
@@ -58,11 +67,12 @@ public class TeacherController {
         	return new ResponseEntity(responseJson.toString(), HttpStatus.OK);
         }
         else
-        {
         	 return new ResponseEntity(responseJson.toString(), HttpStatus.BAD_REQUEST);
-        }
     }
 
+    /*
+     * Delete - Request Handler
+     */
     @RequestMapping(value = "/teachers", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteTeachersData(@RequestParam(value = "") TeacherTO teacher)
     {
@@ -83,6 +93,9 @@ public class TeacherController {
         }
     }
     
+    /*
+     * GET - Request Handler
+     */
     @RequestMapping(value = "/teachers", method = RequestMethod.GET)
     public ResponseEntity<String> getAllTeachersData()
     {

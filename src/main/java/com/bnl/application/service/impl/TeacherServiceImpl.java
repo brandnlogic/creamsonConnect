@@ -85,7 +85,7 @@ public class TeacherServiceImpl implements TeacherService {
     
     /*
      * GET Request Handling. For  this we need to first pull request from the Person_identity table and populate the entire body
-     * Accordingly. For the time being just for testing purpose we will just pull the details from the techers table
+     * Accordingly. For the time being just for testing purpose we will just pull the details from the teachers table
      */
     
     @Override
@@ -96,7 +96,7 @@ public class TeacherServiceImpl implements TeacherService {
     	teachersDetailsDAO.findAll().forEach(allTeachers::add);
     	
     	if(!(allTeachers.isEmpty()))
-    		return allTeachers.toString();
+    		return (new GsonConverter<TeachersDetailsDTO>().ConvertJSONToString(allTeachers));
     	else
     		return "X";
     }
@@ -129,7 +129,7 @@ public class TeacherServiceImpl implements TeacherService {
           String currentTime = sdf.format(dt);
           teachersDetailsDTO.setLastUpdateTimeStamp(currentTime); 
           
-          System.out.println("\n\n **************************************** ");
+/*          System.out.println("\n\n **************************************** ");
           System.out.println("Institute-id :-" + teacherPrimaryKey.getInstitutionId());
           System.out.println("Institute-user-id :-" + teacherPrimaryKey.getInstituteUserId());
           System.out.println("Institute-teacher-id :-" + teacherPrimaryKey.getTeacherId());
@@ -137,7 +137,7 @@ public class TeacherServiceImpl implements TeacherService {
           System.out.println("Institute-teacher-type :-" + teachersDetailsDTO.getTeacherType());
           System.out.println("Institute-teacher-status :-" + teachersDetailsDTO.getStatus());
           System.out.println("Institute-last-updt-id :-" + teachersDetailsDTO.getLastUpdateID());
-          System.out.println("Institute-last-updt-ts:-" + teachersDetailsDTO.getLastUpdateTimeStamp());
+          System.out.println("Institute-last-updt-ts:-" + teachersDetailsDTO.getLastUpdateTimeStamp());*/
           
           return teachersDetailsDTO;
     	
