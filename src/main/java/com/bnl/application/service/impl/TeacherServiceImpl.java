@@ -30,6 +30,7 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public Boolean saveTeacherData(TeacherTO teacherTO) {
     	
+    
     	// setting up the primary key
     	TeacherPrimaryKey teacherPrimaryKey = setPrimaryKeys(teacherTO);
         teachersDetailsDAO.save(initializeFieldMapping(teacherTO,teacherPrimaryKey));
