@@ -1,9 +1,14 @@
 package com.bnl.application.dto;
 
-//import org.springframework.stereotype.Component;
+/*
+ * Created By : Kaushik Ghosh
+ * Date       : 05/07/2018
+ * Description: This is the Entity class of the Teacher_details table. Note that since the table consist of the composite Primary key we have
+ * and @EmbeddedID field.
+ */
 
 import javax.persistence.*;
-import java.util.Date;
+//import java.util.Date;
 
 @Entity(name = "teacher_dtls")
 //@Component

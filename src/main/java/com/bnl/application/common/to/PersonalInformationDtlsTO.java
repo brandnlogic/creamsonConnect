@@ -3,16 +3,15 @@ package com.bnl.application.common.to;
 /*
  * Created By : Kaushik Ghosh
  * Date       : 05/07/2018
- * Description: This is a POJO class to capture the incoming request for a teacher service. This contains fields that is mapped both to the teacher_dtls
- * table as well as the personal_dtls_information table.
+ * Description: This is a POJO class having the similar structure as that of the PersonalInformationDtls table.
  */
-public class TeacherTO {
 
-    private int institutionId ;
-    private String institutionUserType;
-    private String teacherType ;
-    private int  status ;
-    private String firstName;
+public class PersonalInformationDtlsTO {
+	
+	private int institutionId;
+	private String institutionUserType;
+	private String personalId;
+	private String firstName;
 	private String middleName;
 	private String lastName;
 	private String dateOfBirth;
@@ -24,32 +23,8 @@ public class TeacherTO {
 	private String city;
 	private String pincode;
 	private String lastUpdateID;
-  //  private String lastUpdateTimestamp ;
-    
-	public int getInstitutionId() {
-		return institutionId;
-	}
-	public void setInstitutionId(int institutionId) {
-		this.institutionId = institutionId;
-	}
-	public String getInstitutionUserType() {
-		return institutionUserType;
-	}
-	public void setInstitutionUserType(String institutionUserType) {
-		this.institutionUserType = institutionUserType;
-	}
-	public String getTeacherType() {
-		return teacherType;
-	}
-	public void setTeacherType(String teacherType) {
-		this.teacherType = teacherType;
-	}
-	public int getStatus() {
-		return status;
-	}
-	public void setStatus(int status) {
-		this.status = status;
-	}
+	private String lastUpdateTimeStamp;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -64,6 +39,24 @@ public class TeacherTO {
 	}
 	public String getLastName() {
 		return lastName;
+	}
+	public int getInstitutionId() {
+		return institutionId;
+	}
+	public void setInstitutionId(int institutionId) {
+		this.institutionId = institutionId;
+	}
+	public String getInstitutionUserType() {
+		return institutionUserType;
+	}
+	public void setInstitutionUserType(String institutionUserType) {
+		this.institutionUserType = institutionUserType;
+	}
+	public String getPersonalId() {
+		return personalId;
+	}
+	public void setPersonalId(String personalId) {
+		this.personalId = personalId;
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -122,10 +115,10 @@ public class TeacherTO {
 	public void setLastUpdateID(String lastUpdateID) {
 		this.lastUpdateID = lastUpdateID;
 	}
-/*	public String getLastUpdateTimestamp() {
-		return lastUpdateTimestamp;
+	public String getLastUpdateTimeStamp() {
+		return lastUpdateTimeStamp;
 	}
-	public void setLastUpdateTimestamp(String lastUpdateTimestamp) {
-		this.lastUpdateTimestamp = lastUpdateTimestamp;
-	}*/
+	public void setLastUpdateTimeStamp(String lastUpdateTimeStamp) {
+		this.lastUpdateTimeStamp = lastUpdateTimeStamp;
+	}
 }

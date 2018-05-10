@@ -1,4 +1,4 @@
-package com.bnl.application.service.impl;
+package com.bnl.application.common.util;
 
 /*
  *  Written By : Kaushik Ghosh

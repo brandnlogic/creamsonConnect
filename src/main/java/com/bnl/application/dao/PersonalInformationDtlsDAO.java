@@ -1,10 +1,11 @@
 package com.bnl.application.dao;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
-import com.bnl.application.dto.TeacherPrimaryKey;
-import com.bnl.application.dto.TeachersDetailsDTO;
+import com.bnl.application.dto.PersonalInformationDtlsDTO;
+import com.bnl.application.dto.PersonalInformationDtlsPrimaryKey;
+
+
 
 /*
  * Created By : Kaushik Ghosh
@@ -14,12 +15,7 @@ import com.bnl.application.dto.TeachersDetailsDTO;
  * the table DAO since we have a composite Primary key we are using the appropriate classes in the generics of the CrudRepository Interface.
  * Note that the SPringBoot will provide the corresponding class for the implementation of this interface.
  */
-public interface TeachersDetailsDAO extends CrudRepository<TeachersDetailsDTO, TeacherPrimaryKey>  {
 
-  //  TeachersDetailsDTO findByTeacherId(TeacherPrimaryKey teacherId);
+public interface PersonalInformationDtlsDAO extends CrudRepository<PersonalInformationDtlsDTO, PersonalInformationDtlsPrimaryKey>  {
 
-    /*@Modifying
-    @Transactional
-    @Query(value = "delete from TEACHER_DTLS WHERE TEACHER_ID = :teacherIdList", nativeQuery = true)
-    Integer deleteTeacherIdIn(@Param("teacherIdList") List<String> teacherIdList);*/
 }

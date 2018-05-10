@@ -1,4 +1,9 @@
 package com.bnl.application.controller;
+/*
+ * Created By : Kaushik Ghosh
+ * Date       : 05/07/2018
+ * Description: This is RestController class for the teacherService.
+ */
 
 import com.bnl.application.common.to.TeacherTO;
 import com.bnl.application.service.TeacherService;
@@ -88,9 +93,7 @@ public class TeacherController {
         	return new ResponseEntity(responseJson.toString(), HttpStatus.OK);
         }
         else
-        {
         	 return new ResponseEntity(responseJson.toString(), HttpStatus.BAD_REQUEST);
-        }
     }
     
     /*
