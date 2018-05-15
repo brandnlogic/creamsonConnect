@@ -1,5 +1,4 @@
 package com.bnl.application.service;
-
 import com.bnl.application.common.to.PersonalInformationDtlsTO;
 
 public interface PersonalInformationDtlsService {

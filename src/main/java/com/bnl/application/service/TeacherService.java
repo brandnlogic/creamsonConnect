@@ -1,6 +1,4 @@
 package com.bnl.application.service;
-
-
 import com.bnl.application.common.to.TeacherTO;
 
 public interface TeacherService

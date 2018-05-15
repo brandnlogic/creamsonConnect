@@ -1,15 +1,18 @@
 package com.bnl.application.service.impl;
-import com.bnl.application.common.to.PersonalInformationDtlsTO;
+
 /*
  * Created By : Kaushik Ghosh
  * Date       : 05/07/2018
  * Description: This is the Service layer of the TeacherService which implments the TeacherService Interface. This contains the basic CRUD repository
  * operation. Also it contains two methods to set the Embeddable Primary Key and the other fields of the TeacherDetailsDTO object from the 
  * TeacherTO object.
- * This also calls the GSON class to create the JSON strign from the JSON object received as part of the GETALL call and passes that to teh controller
+ * This also calls the GSON class to create the JSON strign from the JSON object received as part of the GETALL call and passes that to the controller
  * layer.
  * Alternatively it executes the method to populate the unique systemgenerate keys.
  */
+
+
+import com.bnl.application.common.to.PersonalInformationDtlsTO;
 import com.bnl.application.common.to.TeacherTO;
 import com.bnl.application.common.util.GenerateRandomNum;
 import com.bnl.application.common.util.GsonConverter;
@@ -60,8 +63,10 @@ public class TeacherServiceImpl implements TeacherService {
          */
         
         PersonalInformationDtlsTO personalInformationDtlsTO = populatePersonalInformationDtlsTO(teacherTO, teacherDetailsDTO);
-        personalInformationDtlService.savePersonalInformatioDtls(personalInformationDtlsTO);
-        return true;
+        if (personalInformationDtlService.savePersonalInformatioDtls(personalInformationDtlsTO))
+        	return true;
+        else
+        	return false;
     }
     
     /*
@@ -88,7 +93,6 @@ public class TeacherServiceImpl implements TeacherService {
     }
     
     /*
-     * (non-Javadoc)
      * @see com.bnl.service.TeacherService#deleteTeacherData(com.bnl.common.to.TeacherTO)
      * Delete Request handling
      */
@@ -113,7 +117,10 @@ public class TeacherServiceImpl implements TeacherService {
     
     /*
      * GET Request Handling. For  this we need to first pull request from the Person_identity table and populate the entire body
-     * Accordingly. For the time being just for testing purpose we will just pull the details from the teachers table
+     * Accordingly. For the time being just for testing purpose we will just pull the details from the teachers table.
+     * Note that GetAllTeacher will always happen based on the institution id, i.e., once someone logs in then only he will ask for all the 
+     * teacher list. So GetAll teacher dtls will always happen based on only the id while any individual teacher details will happen based on the 
+     * primary key of the teacher table. 
      */
     
     @Override
@@ -129,6 +136,9 @@ public class TeacherServiceImpl implements TeacherService {
     		return "X";
     }
     
+    /*
+     * Setting up the primary key for the teacher table
+     */
     public TeacherPrimaryKey setPrimaryKeys(TeacherTO teacherTO)
     {
     	GenerateRandomNum generate = new GenerateRandomNum();
@@ -141,6 +151,10 @@ public class TeacherServiceImpl implements TeacherService {
         
         return teacherPrimaryKey;
     }
+    
+    /*
+     * Setting up the Primary Key fields of the teacher_dtls table
+     */
     
     public TeachersDetailsDTO initializeFieldMapping(TeacherTO teacherTO, TeacherPrimaryKey teacherPrimaryKey)
     {
@@ -162,6 +176,9 @@ public class TeacherServiceImpl implements TeacherService {
           return teachersDetailsDTO;
     }
     
+    /*
+     * This method will take both the teacherTO and the teacherDTO class to populate different fields of the PersonalInformationDtlsTO class.
+     */
     public PersonalInformationDtlsTO populatePersonalInformationDtlsTO(TeacherTO teacherTO, TeachersDetailsDTO teachersDetailsDTO)
     {
     	PersonalInformationDtlsTO personalInformationDtlsTO = new PersonalInformationDtlsTO();

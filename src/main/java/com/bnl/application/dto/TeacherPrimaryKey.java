@@ -42,6 +42,4 @@ public class TeacherPrimaryKey implements Serializable {
 	public void setInstituteUserId(String instituteUserId) {
 		this.instituteUserId = instituteUserId;
 	}
-	
-	
 }

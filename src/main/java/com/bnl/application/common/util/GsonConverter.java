@@ -22,5 +22,13 @@ public class GsonConverter<T> {
 		}
 		return sb.toString();
 	}
-
+	
+	public String ConvertJSONToString(T entityObject)
+	{
+		Gson gson = new Gson();
+		StringBuilder sb = new StringBuilder();
+		sb.append(gson.toJson(entityObject));
+			
+		return sb.toString();
+	}
 }

@@ -21,7 +21,7 @@ public class PersonalInformationDtlsPrimaryKey implements Serializable{
 	private int institutionId;
 	  
 	@Column(name = "Institution_User_Type")
-	private int institutionUserType;
+	private String institutionUserType;
 	  
 	@Column(name = "Personal_Id")
 	private String personalId;
@@ -34,11 +34,11 @@ public class PersonalInformationDtlsPrimaryKey implements Serializable{
 		this.institutionId = institutionId;
 	}
 
-	public int getInstitueUserType() {
+	public String getInstitueUserType() {
 		return institutionUserType;
 	}
 
-	public void setInstitueUserType(int institutionUserType) {
+	public void setInstitueUserType(String institutionUserType) {
 		this.institutionUserType = institutionUserType;
 	}
 
