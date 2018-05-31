@@ -8,7 +8,7 @@ package com.bnl.application.service.impl;
  * TeacherTO object.
  * This also calls the GSON class to create the JSON strign from the JSON object received as part of the GETALL call and passes that to the controller
  * layer.
- * Alternatively it executes the method to populate the unique systemgenerate keys.
+ * Alternatively it executes the method to populate the unique system generate keys.
  */
 
 
@@ -24,6 +24,7 @@ import com.bnl.application.service.TeacherService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,7 @@ public class TeacherServiceImpl implements TeacherService {
      * POST request handling
      */
     @Override
+    @Transactional
     public Boolean saveTeacherData(TeacherTO teacherTO) {
     	
     	// setting up the primary key for the teacher class
