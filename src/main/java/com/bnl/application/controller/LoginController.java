@@ -18,42 +18,49 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bnl.application.common.to.InstitutionAdminDtlsTO;
-import com.bnl.application.service.InstitutionAdminDtlsService;
+import com.bnl.application.common.to.UserCredentialTO;
+import com.bnl.application.service.UserCredentialService;
 
 @RestController
 public class LoginController {
 	
 	@Autowired
-	InstitutionAdminDtlsService institutionAdminDtlsService;
+	UserCredentialService userCredentialServiceImpl;
 	
 	/*
      * POST - Request Handler
      */
-    @RequestMapping(value = "/adminlogin", method = RequestMethod.POST)
-    public ResponseEntity<String> saveInstitutionAdminDtls(@RequestBody InstitutionAdminDtlsTO institutionAdminDtlsTO)
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    public ResponseEntity<String> saveInstitutionUserDtls(@RequestBody UserCredentialTO userCredentialTO)
     {
         JSONObject responseJson = new JSONObject();
         //TODO Fetch IbstitueID based on UserId
         
-        if(institutionAdminDtlsService.saveInstitutionAdminDtls(institutionAdminDtlsTO))
+        if(userCredentialServiceImpl.saveUserCredentialDtls(userCredentialTO) == 0)
         {
             try {
 				responseJson.put("STATUS", "SUCCESS");
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             return new ResponseEntity<String>(responseJson.toString(), HttpStatus.OK);
-        }else{
+        }else if (userCredentialServiceImpl.saveUserCredentialDtls(userCredentialTO) == -1) 
+        {
+        	try {
+				responseJson.put("ERROR","Username Already Exist");
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
         return new ResponseEntity<String>(responseJson.toString(), HttpStatus.BAD_REQUEST);
         }
+        else
+        	return new ResponseEntity<String>(responseJson.toString(), HttpStatus.BAD_REQUEST);
     }
     
     /*
      * GET - Request Handler. This will fetch all the rows from the table
      */
-    @RequestMapping(value = "/adminlogin", method = RequestMethod.GET)
+/*    @RequestMapping(value = "/adminlogin", method = RequestMethod.GET)
     public ResponseEntity<String> getAllInstitutionAdminDtls()
     {
      //   JSONObject responseJson = new JSONObject();
@@ -62,20 +69,20 @@ public class LoginController {
         	return new ResponseEntity<String>(getAllInstitutionDtlsResponse, HttpStatus.OK);
         else
         	return new ResponseEntity<String>("Failure", HttpStatus.BAD_REQUEST);
-    }
+    }*/
     
     /*
      * GET - Request Handler. This will fetch a particular row from the table based on the User-Name.
      */
-    @RequestMapping(value = "/adminlogin/{username}", method = RequestMethod.GET)
-    public ResponseEntity<String> getInstitutionAdminDtlsByinstitutionAdminUsername(@PathVariable(value="username") String userName )
+/*    @RequestMapping(value = "/user/{username}", method = RequestMethod.GET)
+    public ResponseEntity<String> getUserDtlsByUsername(@PathVariable(value="username") String userName )
     {
      //   JSONObject responseJson = new JSONObject();
-        String getAllInstitutionDtlsResponseByUserName = institutionAdminDtlsService.getInstitutionAdminDtlsByinstitutionAdminUsername(userName);
-        if(!(getAllInstitutionDtlsResponseByUserName.equals("X")))
+        String getResponseByUserName = userCredentialServiceImpl.getUserDtlsByUsername(userName);
+        if(!(getResponseByUserName.equals("X")))
         	return new ResponseEntity<String>(getAllInstitutionDtlsResponseByUserName, HttpStatus.OK);
         else
         	return new ResponseEntity<String>("Failure", HttpStatus.BAD_REQUEST);
-    }
+    }*/
 
 }

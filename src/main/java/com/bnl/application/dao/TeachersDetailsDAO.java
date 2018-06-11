@@ -1,8 +1,6 @@
 package com.bnl.application.dao;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
-
 import com.bnl.application.dto.TeacherPrimaryKey;
 import com.bnl.application.dto.TeachersDetailsDTO;
 

@@ -13,11 +13,8 @@ public class TeacherPrimaryKey implements Serializable {
 	@Column(name = "Institution_Id")
 	private int institutionId;
 	  
-	@Column(name = "Teacher_Id")
-	private int teacherId;
-	  
-	@Column(name = "Institute_User_Id")
-	private String instituteUserId;
+	@Column(name = "INSTITUTION_USER_ID_TEACHER")
+	private int instituteUserIdTeacher;
 	    
 
     public static long getSerialVersionUID() {
@@ -30,16 +27,13 @@ public class TeacherPrimaryKey implements Serializable {
 	public void setInstitutionId(int institutionId) {
 		this.institutionId = institutionId;
 	}
-	public int getTeacherId() {
-			return teacherId;
+
+	public int getInstituteUserIdTeacher() {
+		return instituteUserIdTeacher;
 	}
-	public void setTeacherId(int teacherId) {
-		this.teacherId = teacherId;
+
+	public void setInstituteUserIdTeacher(int instituteUserIdTeacher) {
+		this.instituteUserIdTeacher = instituteUserIdTeacher;
 	}
-	public String getInstituteUserId() {
-		return instituteUserId;
-	}
-	public void setInstituteUserId(String instituteUserId) {
-		this.instituteUserId = instituteUserId;
-	}
+	
 }

@@ -10,22 +10,27 @@ package com.bnl.application.dto;
 import javax.persistence.*;
 //import java.util.Date;
 
-@Entity(name = "teacher_dtls")
-//@Component
+@Entity(name = "TEACHER_DTLS")
 public class TeachersDetailsDTO {
 
     @EmbeddedId
     private TeacherPrimaryKey teacherPrimaryKey;
     
-    @Column(name = "Personal_Id")
-    private int personalID;
+    @Column(name = "SUBJECT")
+    private String subject;
     
-    @Column(name = "Teacher_Type")
+    @Column(name = "CLASS_TEACHER_FLAG")
+    private String classTeacherFlag;
+    
+    @Column(name = "CLASS")
+    private String instituteClass;
+    
+    @Column(name = "SEC")
+    private String instituteSec;
+    
+    @Column(name = "TEACHER_TYPE")
     private String teacherType;
-    
-    @Column(name = "Status")
-    private int status;
-
+   
     @Column(name = "Last_Update_Id")
     private String lastUpdateID;
 
@@ -40,25 +45,41 @@ public class TeachersDetailsDTO {
 		this.teacherPrimaryKey = teacherPrimaryKey;
 	}
 
-	public int getStatus() {
-		return status;
-    }
+    public String getSubject() {
+		return subject;
+	}
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
 
-    public String getLastUpdateID() {
+	public String getClassTeacherFlag() {
+		return classTeacherFlag;
+	}
+
+	public void setClassTeacherFlag(String classTeacherFlag) {
+		this.classTeacherFlag = classTeacherFlag;
+	}
+
+	public String getInstituteClass() {
+		return instituteClass;
+	}
+
+	public void setInstituteClass(String instituteClass) {
+		this.instituteClass = instituteClass;
+	}
+
+	public String getInstituteSec() {
+		return instituteSec;
+	}
+
+	public void setInstituteSec(String instituteSec) {
+		this.instituteSec = instituteSec;
+	}
+
+	public String getLastUpdateID() {
         return lastUpdateID;
     }
-
-    public int getPersonalID() {
-		return personalID;
-	}
-
-	public void setPersonalID(int personalID) {
-		this.personalID = personalID;
-	}
 
 	public String getTeacherType() {
 		return teacherType;

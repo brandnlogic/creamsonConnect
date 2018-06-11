@@ -6,7 +6,7 @@
 	<groupId>com.bnl</groupId>
 	<artifactId>CreamsonConnect</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>CreamsonConnect</name>
 	<description>Project for Spring Boot</description>
@@ -79,6 +79,15 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<!-- This is added To build a war file that is both 
+		executable and deployable into an external container, you need to mark the embedded container dependencies as “provided" -->
+		
+<!-- 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency> -->
 
     </dependencies>
 
