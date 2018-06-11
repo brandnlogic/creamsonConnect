@@ -161,15 +161,19 @@ public class UserCredentialServiceImpl implements UserCredentialService {
     	institutionUserCredential.setInstitutionUserCredentialPrimaryKey(instituteUserCredentialPrimaryKey);
     	institutionUserCredential.setInstituteUserPassword(userCredentialTO.getPassword());
     	
-    	if(userCredentialTO.getUserTaxId().isEmpty())
+    	if(userCredentialTO.getUserTaxId() == null)
     		institutionUserCredential.setUserTaxId("DEFAULT");
-    	else
-    		institutionUserCredential.setUserTaxId(userCredentialTO.getUserTaxId());
+    	else if(userCredentialTO.getUserTaxId().isEmpty())
+    			institutionUserCredential.setUserTaxId("DEFAULT");
+    		else
+    			institutionUserCredential.setUserTaxId(userCredentialTO.getUserTaxId());
     	
-    	if(userCredentialTO.getUserUniqueId().isEmpty())
+    	if(userCredentialTO.getUserUniqueId() == null)
     		institutionUserCredential.setUserUniqueId("DEFAULT");
-    	else
-    		institutionUserCredential.setUserUniqueId(userCredentialTO.getUserUniqueId());
+    	else if(userCredentialTO.getUserUniqueId().isEmpty())
+    			institutionUserCredential.setUserUniqueId("DEFAULT");
+    		else
+    			institutionUserCredential.setUserUniqueId(userCredentialTO.getUserUniqueId());
     	
     	institutionUserCredential.setFirstname(userCredentialTO.getFirstName());
     	institutionUserCredential.setMiddleName(userCredentialTO.getMiddleName());
@@ -209,15 +213,19 @@ public class UserCredentialServiceImpl implements UserCredentialService {
     	// Default password will be set which will be same as the default user-id.
     	institutionUserCredential.setInstituteUserPassword(instituteUserCredentialPrimaryKey.getInstitutionUserName());
     	
-    	if(guardianDtlsTO.getgTaxId().isEmpty())
+    	if(guardianDtlsTO.getgTaxId() == null)
     		institutionUserCredential.setUserTaxId("DEFAULT");
-    	else
-    		institutionUserCredential.setUserTaxId(guardianDtlsTO.getgTaxId());
+    	else if(guardianDtlsTO.getgTaxId().isEmpty())
+    			institutionUserCredential.setUserTaxId("DEFAULT");
+    		else
+    			institutionUserCredential.setUserTaxId(guardianDtlsTO.getgTaxId());
     	
-    	if(guardianDtlsTO.getgUniqueUserId().isEmpty())
+    	if(guardianDtlsTO.getgUniqueUserId() == null)
     		institutionUserCredential.setUserUniqueId("DEFAULT");
-    	else
-    		institutionUserCredential.setUserUniqueId(guardianDtlsTO.getgUniqueUserId());
+    	else if(guardianDtlsTO.getgUniqueUserId().isEmpty())
+    			institutionUserCredential.setUserUniqueId("DEFAULT");
+    		else
+    			institutionUserCredential.setUserUniqueId(guardianDtlsTO.getgUniqueUserId());
     	
     	institutionUserCredential.setFirstname(guardianDtlsTO.getgFirstName());
     	institutionUserCredential.setMiddleName(guardianDtlsTO.getgMiddleName());

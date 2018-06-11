@@ -61,6 +61,8 @@ public class StudentServiceImpl implements StudentService{
     	studentDetailsDTO.setStudentRollNum(userCredentialTO.getStudentRollNum());
     	studentDetailsDTO.setClassStartDate(userCredentialTO.getClassStartDate());
     	studentDetailsDTO.setClassEndDate(userCredentialTO.getClassEndDate());
+    	studentDetailsDTO.setLastUpdateId(userCredentialTO.getLastUpdateId());
+    	studentDetailsDTO.setLastUpdateTimestamp(institutionUserCredentialMasterDTO.getLastUpdateTimestamp());
     	
         return studentDetailsDTO;
     }
